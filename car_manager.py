@@ -7,6 +7,21 @@ MOVE_INCREMENT = 10
 
 
 class CarManager(Turtle):
+    def __init__(self, list):
+        super().__init__()
+
+        self.hideturtle()  
+
+        for i in range(random.randint(1,5)):
+            list.append(Car())
+    
+    def spawn_cars(self):
+        number_generator = random.randint(0,4)
+        for number in range(number_generator):
+            self.spawned_cars.append(CarManager())
+
+
+class Car(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("square")
@@ -17,18 +32,9 @@ class CarManager(Turtle):
         # self.speed = MOVE_INCREMENT * level
         self.goto(300 -STARTING_MOVE_DISTANCE, random.randint(-250,250))
         self.setheading(180)
-
-        self.spawned_cars = []
-        self.spawned_cars.append(self)
-
+    
     def move_car(self, level):
         if self.xcor() > -340:
             self.forward(MOVE_INCREMENT * level)
         if self.xcor() <= -340:
             self.clear()
-    
-    def spawn_cars(self):
-        number_generator = random.randint(0,4)
-        for number in range(number_generator):
-            self.spawned_cars.append(CarManager())
-    
