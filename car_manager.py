@@ -14,15 +14,16 @@ class CarManager(Turtle):
         self.speed("fastest")
         self.shapesize(1, 2)
         self.color(random.choice(COLORS))
+        # self.speed = MOVE_INCREMENT * level
         self.goto(300 -STARTING_MOVE_DISTANCE, random.randint(-250,250))
         self.setheading(180)
 
         self.spawned_cars = []
         self.spawned_cars.append(self)
 
-    def move_car(self):
+    def move_car(self, level):
         if self.xcor() > -340:
-            self.forward(MOVE_INCREMENT)
+            self.forward(MOVE_INCREMENT * level)
         if self.xcor() <= -340:
             self.clear()
     
@@ -30,4 +31,4 @@ class CarManager(Turtle):
         number_generator = random.randint(0,4)
         for number in range(number_generator):
             self.spawned_cars.append(CarManager())
-        
+    
