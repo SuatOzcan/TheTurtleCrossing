@@ -35,11 +35,11 @@ while game_is_on:
     # cycle = 0
 
     for car in car_manager.car_list:
-        car.move_car(level_counter)
-
         if player.distance(car) < 15:
             scoreboard.game_over()
             game_is_on = False
+            
+        car.move_car(level_counter)
 
     if player.ycor() >= 280:
         player.move_to_starting_position()
