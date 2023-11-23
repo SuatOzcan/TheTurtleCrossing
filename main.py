@@ -1,5 +1,4 @@
 import time
-import random
 from turtle import Screen
 from player import Player
 from car_manager import CarManager
@@ -21,7 +20,9 @@ screen.onkeypress(player.move, "w")
 screen.onkeypress(player.back_move, "s")
 
 # cycle = 0
-level_counter = 1
+# level_counter = 1
+
+CarManager.speed_property()
 
 game_is_on = True
 while game_is_on:
@@ -38,14 +39,15 @@ while game_is_on:
         if player.distance(car) < 15:
             scoreboard.game_over()
             game_is_on = False
-            
-        car.move_car(level_counter)
+
+        car.move_car()
 
     if player.ycor() >= 280:
         player.move_to_starting_position()
         scoreboard.update_level()
-        level_counter += 1
+        car_manager.update_speed()
 
+        # level_counter += 1
     # cycle += 1
 
 screen.exitonclick()
