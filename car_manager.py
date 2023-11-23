@@ -7,18 +7,18 @@ MOVE_INCREMENT = 5
 
 
 class CarManager(Turtle):
-    def __init__(self, list):
+    def __init__(self):
         super().__init__()
-
         self.hideturtle()  
+        self.car_list = []   
 
-        for i in range(random.randint(1,5)):
-            list.append(Car())
+        # for i in range(random.randint(1,5)):
+        #     self.car_list.append(Car())
     
     def spawn_cars(self):
         number_generator = random.randint(0,4)
         for number in range(number_generator):
-            self.spawned_cars.append(CarManager())
+            self.car_list.append(Car())
 
 
 class Car(Turtle):
