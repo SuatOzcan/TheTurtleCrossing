@@ -10,7 +10,6 @@ screen.tracer(0)
 
 player = Player()
 scoreboard = Scoreboard()
-level_counter = 1
 # car_list = []
 car_manager = CarManager()
 
@@ -20,6 +19,7 @@ screen.onkeypress(player.move, "w")
 screen.onkeypress(player.back_move, "s")
 
 cycle = 0
+level_counter = 1
 
 game_is_on = True
 while game_is_on:
@@ -31,7 +31,7 @@ while game_is_on:
         # CarManager()
         cycle = 0
 
-    for car in car_manager.car_list:  #for car in car_manager.spawned_cars:
+    for car in car_manager.car_list:
         car.move_car(level_counter)
 
         if player.distance(car) < 15:
