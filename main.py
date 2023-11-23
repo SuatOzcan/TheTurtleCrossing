@@ -29,11 +29,10 @@ while game_is_on:
     screen.update()
 
     # if cycle == 6:
-    random_integer = random.randint(1,6)
-    if random_integer == 1:
-        car_manager.spawn_cars()
-        # CarManager()
-        # cycle = 0
+
+    car_manager.spawn_cars()
+    # CarManager()
+    # cycle = 0
 
     for car in car_manager.car_list:
         car.move_car(level_counter)

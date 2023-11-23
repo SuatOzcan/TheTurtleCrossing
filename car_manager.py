@@ -16,9 +16,11 @@ class CarManager():
         #     self.car_list.append(Car())
     
     def spawn_cars(self):
-        number_generator = random.randint(0,4)
-        for number in range(number_generator):
-            self.car_list.append(Car())
+        random_integer = random.randint(1,6)
+        if random_integer == 1:
+            number_generator = random.randint(0,4)
+            for number in range(number_generator):
+                self.car_list.append(Car())
 
 
 class Car(Turtle):
